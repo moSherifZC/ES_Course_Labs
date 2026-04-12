@@ -11,37 +11,45 @@ void I2C_Test(void)
 
     // Test sequence 1: Write to address 0x50
     I2C_Start();
-    for (j = 0; j < 10000; j++);
+    for (j = 0; j < 10000; j++)
+        ;
 
-    I2C_WriteAddress(0x50, 0);  // Write mode
-    for (j = 0; j < 10000; j++);
+    I2C_WriteAddress(0x50, 0); // Write mode
+    for (j = 0; j < 10000; j++)
+        ;
 
     // Send 3 bytes
     for (i = 0; i < 3; i++)
     {
         I2C_WriteByte(0x10 + i);
-        for (j = 0; j < 10000; j++);
+        for (j = 0; j < 10000; j++)
+            ;
     }
 
     I2C_Stop();
-    for (j = 0; j < 20000; j++);
+    for (j = 0; j < 20000; j++)
+        ;
 
     // Test sequence 2: Read from address 0x50
     I2C_Start();
-    for (j = 0; j < 10000; j++);
+    for (j = 0; j < 10000; j++)
+        ;
 
-    I2C_WriteAddress(0x50, 1);  // Read mode
-    for (j = 0; j < 10000; j++);
+    I2C_WriteAddress(0x50, 1); // Read mode
+    for (j = 0; j < 10000; j++)
+        ;
 
     // Read 2 bytes
     for (i = 0; i < 2; i++)
     {
-        u8 Data = I2C_ReadByte(1);  // ACK
-        for (j = 0; j < 10000; j++);
+        (void)I2C_ReadByte(1); // ACK
+        for (j = 0; j < 10000; j++)
+            ;
     }
 
     I2C_Stop();
-    for (j = 0; j < 20000; j++);
+    for (j = 0; j < 20000; j++)
+        ;
 
     // Test at 400kHz
     I2C_SetSpeed(I2C_SPEED_400KHZ);
@@ -51,5 +59,6 @@ void I2C_Test(void)
     I2C_WriteByte(0xAA);
     I2C_Stop();
 
-    for (j = 0; j < 30000; j++);
+    for (j = 0; j < 30000; j++)
+        ;
 }

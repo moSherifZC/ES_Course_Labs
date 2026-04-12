@@ -8,6 +8,8 @@
 #define SWITCH_RELEASED 1
 
 void SWITCH_Init(u8 Port, u8 Pin);
-u8 SWITCH_Read(u8 Port, u8 Pin); /* returns SWITCH_PRESSED or SWITCH_RELEASED */
+u8 SWITCH_Read(u8 Port, u8 Pin);
+
+extern void Delay_ms(u16 ms);
 
 #endif

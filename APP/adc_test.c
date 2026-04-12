@@ -3,7 +3,6 @@
 
 void ADC_Test(void)
 {
-    u16 ADCValue;
     u8 Channel;
     u8 i;
     u32 j;
@@ -14,10 +13,11 @@ void ADC_Test(void)
     for (Channel = 0; Channel < 4; Channel++)
     {
         // Select and read channel
-        ADCValue = ADC_ReadChannel(Channel);
+        (void)ADC_ReadChannel(Channel);
 
         // Delay for observation
-        for (j = 0; j < 30000; j++);
+        for (j = 0; j < 30000; j++)
+            ;
     }
 
     // Continuous reading from AN0
@@ -25,8 +25,9 @@ void ADC_Test(void)
 
     for (i = 0; i < 10; i++)
     {
-        ADCValue = ADC_ReadChannel(ADC_CHANNEL_AN0);
+        (void)ADC_ReadChannel(ADC_CHANNEL_AN0);
 
-        for (j = 0; j < 20000; j++);
+        for (j = 0; j < 20000; j++)
+            ;
     }
 }
